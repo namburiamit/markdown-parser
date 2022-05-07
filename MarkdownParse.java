@@ -30,11 +30,13 @@ public class MarkdownParse {
             if(closeBracket +1!= openParen){
                 continue;
             }
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             System.out.println(currentIndex);
         }
         
         return toReturn;
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -43,4 +45,5 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
     }
+
 }

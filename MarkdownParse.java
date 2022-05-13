@@ -27,13 +27,14 @@ public class MarkdownParse {
             if(openBracket-1 == exclamationPoint && openBracket != 0){
                 continue;
             }
-            if(closeBracket +1!= openParen){
+            if(closeBracket != openParen-2+1){
                 continue;
             }
 
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             System.out.println(currentIndex);
         }
+        
         
         return toReturn;
 

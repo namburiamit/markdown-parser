@@ -62,5 +62,13 @@ public class MarkdownParseTest {
         String content = Files.readString(Path.of("test-file8.md"));
         assertEquals(List.of("a link on the first line"), MarkdownParse.getLinks(content));
     }
+
+    @Test
+    public void testSnippet1() throws IOException {
+      String str = "`[a link`](url.com)" + "[another link](`google.com)`" +
+       "[`cod[e`](google.com)" + "[`code]`](ucsd.edu)";
+      assertEquals( "MarkdownParse test on snippet 1",
+       List.of("`google.com","google.com", "ucsd.edu"), MarkdownParse.getLinks(str));
+    }
     
 }
